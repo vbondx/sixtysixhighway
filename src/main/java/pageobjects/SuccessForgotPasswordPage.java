@@ -15,8 +15,4 @@ public class SuccessForgotPasswordPage extends BasePage {
 
     @AndroidFindBy (id = "btnCheckMail")
     private MobileElement checkMailButton;
-
-    public void setConnection() {
-        ((AndroidDriver) driver).setConnection(Connection.AIRPLANE);
-    }
 }

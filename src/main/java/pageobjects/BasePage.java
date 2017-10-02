@@ -11,11 +11,9 @@ import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.awt.peer.SystemTrayPeer;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -136,7 +134,7 @@ public class BasePage {
         Ocr.setUp(); // one time setup
         Ocr ocr = new Ocr(); // create a new OCR engine
 
-        ocr.startEngine("rus", Ocr.SPEED_FAST); // English
+        ocr.startEngine("rus", Ocr.SPEED_FAST);                   // LANG
         String s = ocr.recognize(new File[] {new File(System.getProperty("user.dir") + "/toastmessages/toastmessage.png")},
                 Ocr.RECOGNIZE_TYPE_ALL, Ocr.OUTPUT_FORMAT_PLAINTEXT); // PLAINTEXT | XML | PDF | RTF
         System.out.println("Result: " + s);

@@ -1,15 +1,9 @@
 package pageobjects;
 
-import com.asprise.ocr.Ocr;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
-import net.sourceforge.tess4j.Tesseract;
-import net.sourceforge.tess4j.TesseractException;
-import org.bytedeco.javacpp.tesseract;
 
-import java.io.File;
-import java.util.concurrent.TimeUnit;
 
 public class SignInPage extends BasePage {
     public SignInPage(AppiumDriver<MobileElement> driver) {
