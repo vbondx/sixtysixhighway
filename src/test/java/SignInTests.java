@@ -82,12 +82,11 @@ public class SignInTests extends BaseTest {
         UnauthorizedPage unauthorizedPage = new UnauthorizedPage(driver);
         unauthorizedPage.goToSignInPage();
         SignInPage signInPage = new SignInPage(driver);
-        signInPage.enterPhoneNumberShorterThanTwelveWhithoutPlus();
+        signInPage.enterPhoneNumberShorterThanTwelveWithoutPlus();
         signInPage.enterPassword();
-        signInPage.goToProfilePage();
-        ProfilePage profilePage = new ProfilePage(driver);
+        signInPage.clickOnLogInButton();
         try {
-            Assert.assertTrue(profilePage.profileHeaderTextDisplayed());
+            Assert.assertTrue(signInPage.incorrectDataInputErrorDisplays());
             log.info("<Sign in with phone number shorter than twelve> Test passed" + " " + getClass());
         } catch (NoSuchElementException e) {
             log.warn("<Sign in with phone number shorter than twelve> Test failed, element not found:" + " " + getClass() + " " + e.getMessage());
@@ -107,8 +106,9 @@ public class SignInTests extends BaseTest {
         signInPage.enterNotRegisteredPhoneNumber();
         signInPage.enterPassword();
         signInPage.clickOnLogInButton();
+        basePage.captureScreenshot();
         try {
-            Assert.assertTrue(signInPage.loginButtonDisplayed());
+            Assert.assertTrue(basePage.charRecognition().contains("Неправильный номер телефона/етаН или пароль."));
             log.info("<Sign in with not registered phone number> Test passed" + " " + getClass());
         } catch (NoSuchElementException e) {
             log.warn("<Sign in with not registered phone number> Test failed, element not found:" + " " + getClass() + " " + e.getMessage());
@@ -128,8 +128,9 @@ public class SignInTests extends BaseTest {
         signInPage.enterNotRegisteredEmail();
         signInPage.enterPassword();
         signInPage.clickOnLogInButton();
+        basePage.captureScreenshot();
         try {
-            Assert.assertTrue(signInPage.loginButtonDisplayed());
+            Assert.assertTrue(basePage.charRecognition().contains("Неправильный номер телефона/етаН или пароль."));
             log.info("<Sign in with not registered email> Test passed" + " " + getClass());
         } catch (NoSuchElementException e) {
             log.warn("<Sign in with not registered email> Test failed, element not found:" + " " + getClass() + " " + e.getMessage());
@@ -319,20 +320,5 @@ public class SignInTests extends BaseTest {
         } catch (AssertionError e) {
             log.warn("<Open cabinet application page in google play store:" + " " + getClass() + " " + e.getMessage());
         }
-    }
-
-    @Test
-
-    public void govno() throws InterruptedException {
-        BasePage basePage = new BasePage(driver);
-        basePage.goToUnAuthPage();
-        UnauthorizedPage unauthorizedPage = new UnauthorizedPage(driver);
-        unauthorizedPage.goToSignInPage();
-        SignInPage signInPage = new SignInPage(driver);
-        signInPage.enterNotRegisteredEmail();
-        signInPage.enterPassword();
-        signInPage.clickOnLogInButton();
-        signInPage.ocrTest();
-        Assert.assertTrue(signInPage.ocrTest().contains("Неправильный номер телефона/етаН или пароль."));
     }
 }

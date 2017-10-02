@@ -4,24 +4,12 @@ import com.asprise.ocr.Ocr;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
-import net.sourceforge.tess4j.ITessAPI;
-import net.sourceforge.tess4j.TessAPI;
 import net.sourceforge.tess4j.Tesseract;
 import net.sourceforge.tess4j.TesseractException;
-import org.apache.commons.io.FileUtils;
-import org.bytedeco.javacpp.BytePointer;
-import org.bytedeco.javacpp.lept;
 import org.bytedeco.javacpp.tesseract;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.concurrent.TimeUnit;
-
-import static java.lang.Thread.sleep;
-import static org.bytedeco.javacpp.lept.pixDestroy;
-import static org.bytedeco.javacpp.lept.pixRead;
 
 public class SignInPage extends BasePage {
     public SignInPage(AppiumDriver<MobileElement> driver) {
@@ -124,7 +112,7 @@ public class SignInPage extends BasePage {
         emailOrPhoneField.sendKeys(dataList().get(12).toString());
     }
 
-    public void enterPhoneNumberShorterThanTwelveWhithoutPlus() {
+    public void enterPhoneNumberShorterThanTwelveWithoutPlus() {
         log.info("Enter incorrect phone number longer than twelve without plus" + " " + dataList().get(13));
         emailOrPhoneField.sendKeys(dataList().get(13).toString());
     }
@@ -183,76 +171,5 @@ public class SignInPage extends BasePage {
     public boolean loginButtonDisplayed() {
         boolean b = loginButton.isDisplayed();
         return b;
-    }
-
-    public void getToast() {
-        File imagePath = new File(System.getProperty("user.dir"));
-        File imageFile = new File (imagePath + "/toastmessages/toastmessage1.png");
-        tesseract.TessBaseAPI api = new tesseract.TessBaseAPI();
-        //api.Init("src/main/resources/data", "eng");
-        Tesseract instance = Tesseract.getInstance();
-
-        try {
-
-            String result = instance.doOCR(imageFile);
-            System.out.println(result);
-
-        } catch (TesseractException e) {
-            System.err.println(e.getMessage());
-        }
-    }
-
-//    public String getToastMessage() throws InterruptedException {
-//
-//        String filePath = System.getProperty("user.dir");
-//        File file = new File(filePath, "/toastmessages");
-//        sleep(2000l);
-//        captureScreenshot(filePath + "/toastmessages");
-//        String str = "";
-//        BytePointer outText;
-//        tesseract.TessBaseAPI api = new tesseract.TessBaseAPI();
-//
-//        if (api.Init(".", "RUS") != 0) {
-//            System.err.println("Could not initialize tesseract.");
-//            System.exit(1);
-//        }
-//
-//        lept.PIX image = pixRead(file+"/toastmessage1.png");
-//        api.SetImage(image);
-//
-//        // Get OCR result
-//        outText = api.GetUTF8Text();
-//        str = outText.getString();
-//        System.out.println("OCR output:\n" + str);
-//
-//        // Destroy used object and release memory
-//        api.End();
-//        outText.deallocate();
-//        pixDestroy(image);
-//        System.out.println(str);
-//        return str;
-//    }
-
-//    public void captureScreenshot(String path) {
-//        File scrFile = ((TakesScreenshot) driver)
-//                .getScreenshotAs(OutputType.FILE);
-//        try {
-//            String filePath=path+"/toastmessage1.png";
-//            FileUtils.copyFile(scrFile,  new File(filePath));
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
-
-    public String ocrTest() {
-        Ocr.setUp(); // one time setup
-        Ocr ocr = new Ocr(); // create a new OCR engine
-
-        ocr.startEngine("rus", Ocr.SPEED_FAST); // English
-        String s = ocr.recognize(new File[] {new File(System.getProperty("user.dir") + "/toastmessages/toastmessage1.png")},
-                Ocr.RECOGNIZE_TYPE_ALL, Ocr.OUTPUT_FORMAT_PLAINTEXT); // PLAINTEXT | XML | PDF | RTF
-        System.out.println("Result: " + s);
-        ocr.stopEngine();
-        return s;
     }
 }

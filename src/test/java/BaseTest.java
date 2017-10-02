@@ -15,7 +15,7 @@ public class BaseTest {
     Logger log = Logger.getLogger("rootLogger");
     static AndroidDriver<MobileElement> driver;
 
-    @BeforeTest
+    @BeforeMethod
     public void setUp() {
         File classpathRoot = new File(System.getProperty("user.dir"));
         File appDir = new File(classpathRoot, "/Android/app");
