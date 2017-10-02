@@ -11,7 +11,9 @@ import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.awt.peer.SystemTrayPeer;
 import java.io.File;
@@ -82,7 +84,7 @@ public class BasePage {
     public ArrayList dataList() {
         String registeredEmail = "minnnune@gmail.com";     //SET YOUR REGISTERED EMAIL
         String passwordForRegisteredEmail = "1gp7mn24";     //SET YOUR PASSWORD FOR THIS EMAIL
-        String registeredPhoneNumber = "+380990280442";     //SET YOUR REGISTERED PHONE NUMBER
+        String registeredPhoneNumber = "+380632350342";     //SET YOUR REGISTERED PHONE NUMBER
         String phoneNumberShorterThanTwelve = "+3093028044"; //OTHER DATA FOR TEST
         String notRegisteredPhoneNumber = "+380632350348";
         String phoneNumberLongerThanTwelve = "+3809303333333";
@@ -142,6 +144,12 @@ public class BasePage {
         System.out.println(s);
         return s;
     }
+
+    public WebDriverWait initWaiter() {
+        WebDriverWait wd = new WebDriverWait(driver, 5);        // WEBDRIVER WAITER
+        return wd;
+    }
+
 
     //    public void getToast() {                                          // Tess4j+Tesseract OCR
 //        File imagePath = new File(System.getProperty("user.dir"));

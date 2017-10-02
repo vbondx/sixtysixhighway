@@ -147,7 +147,6 @@ public class SignInPage extends BasePage {
     public ProfilePage goToProfilePage() {
         log.info("Click on Log in button");
         loginButton.click();
-        driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
         return new ProfilePage(driver);
     }
 

@@ -1,10 +1,8 @@
-2017-10-02 12:40:13,995 [main] INFO  rootLogger - ***START TEST***
-2017-10-02 12:40:14,642 [main] INFO  rootLogger - Click on profile icon in bottom navigation as unauthorized user
-2017-10-02 12:40:15,153 [main] INFO  rootLogger - Click on Sign In button
-2017-10-02 12:40:18,013 [main] INFO  rootLogger - Enter not registered email test@test.com
-2017-10-02 12:40:24,478 [main] INFO  rootLogger - Enter password for registered user: 1gp7mn24
-2017-10-02 12:40:30,225 [main] INFO  rootLogger - Click on Log In button
-2017-10-02 12:40:30,907 [main] INFO  rootLogger - Screeshot capture
-2017-10-02 12:40:34,198 [main] INFO  rootLogger - Image recognition setup
-2017-10-02 12:40:36,047 [main] INFO  rootLogger - <Sign in with not registered email> Test passed class SignInTests
-2017-10-02 12:40:36,060 [main] INFO  rootLogger - ***END TEST***
+2017-10-02 13:24:45,054 [main] INFO  rootLogger - ***START TEST***
+2017-10-02 13:24:45,736 [main] INFO  rootLogger - Click on profile icon in bottom navigation as unauthorized user
+2017-10-02 13:24:46,104 [main] INFO  rootLogger - Click on Sign In button
+2017-10-02 13:24:47,903 [main] INFO  rootLogger - Enter registered email: minnnune@gmail.com
+2017-10-02 13:24:53,897 [main] INFO  rootLogger - Enter password for registered user: 1gp7mn24
+2017-10-02 13:24:59,499 [main] INFO  rootLogger - Click on Log in button
+2017-10-02 13:25:02,575 [main] INFO  rootLogger - <Sign in with email> Test passed class SignInTests
+2017-10-02 13:25:02,596 [main] INFO  rootLogger - ***END TEST***
