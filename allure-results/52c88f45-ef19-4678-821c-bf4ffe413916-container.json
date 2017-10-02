@@ -1,0 +1,1 @@
+{"uuid":"52c88f45-ef19-4678-821c-bf4ffe413916","name":"autotests","start":1506880273009,"stop":1506880313413,"children":["505831d7-da1a-4a1c-bdaa-d933c15bf029"],"befores":[{"name":"setUp","status":"passed","stage":"finished","description":"","start":1506880273026,"stop":1506880282376}]}

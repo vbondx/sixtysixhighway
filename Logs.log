@@ -1,0 +1,7 @@
+2017-10-02 00:09:39,111 [main] INFO  rootLogger - ***START TEST***
+2017-10-02 00:09:49,604 [main] INFO  rootLogger - Click on profile icon in bottom navigation as unauthorized user
+2017-10-02 00:09:49,831 [main] INFO  rootLogger - Click on Sign In button
+2017-10-02 00:09:51,460 [main] INFO  rootLogger - Enter not registered email test@test.com
+2017-10-02 00:09:57,182 [main] INFO  rootLogger - Enter password for registered user: 1gp7mn24
+2017-10-02 00:10:03,179 [main] INFO  rootLogger - Click on Log In button
+2017-10-02 00:10:07,789 [main] INFO  rootLogger - ***END TEST***
